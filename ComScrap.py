@@ -1,4 +1,3 @@
-from _typeshed import Self
 from selenium import webdriver
 from selenium.webdriver.common import keys
 from selenium.webdriver.common.keys import Keys
@@ -67,13 +66,17 @@ try:
 
     print("\n "+ alcoholicBev+": "+ alcoholicBevVal)
     print("\n "+ adultentertaint+": "+ adultentertaintVal)
-    time.sleep(15)
-    tabel_id = Self.driver.find_element_by_xpath('//*[@id="Col2-3-InvolvementAreas-Proxy"]/section/table')
+    time.sleep(10)
+    tabel_id = driver.find_element_by_xpath('//*[@id="Col2-3-InvolvementAreas-Proxy"]/section/table')
     rows = tabel_id.find_elements(By.TAG_NAME,"tr")
-    for row in rows:
-        # Get the columns (all the column 2)        
-        col = row.find_elements(By.TAG_NAME, "td")[1] #note: index start from 0, 1 is col 2
-        print(col.text) #prints text from the element
+    print("BY using Table tag")
+    print(tabel_id.text)
+   
+
+    # for row in rows:
+    #     # Get the columns (all the column 2)        
+    #     col = row.find_elements(By.TAG_NAME, "td")[1] #note: index start from 0, 1 is col 2
+    #     print(col.text) #prints text from the element
 
      
 except:
