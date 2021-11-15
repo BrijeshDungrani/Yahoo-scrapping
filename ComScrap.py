@@ -8,7 +8,7 @@ import time
 
 comUrl1 = "https://finance.yahoo.com/quote/BMW.DE?p=BMW.DE"
 comUrl2 = "https://finance.yahoo.com/quote/SAP?p=SAP&.tsrc=fin-srch"
-
+companiesUrl = ['https://finance.yahoo.com/quote/BMW.DE?p=BMW.DE','https://finance.yahoo.com/quote/SAP?p=SAP&.tsrc=fin-srch']
 driver = webdriver.Chrome()
 driver.maximize_window()
 driver.implicitly_wait(10)
@@ -18,14 +18,14 @@ time.sleep(5)
 
 driver.maximize_window()
 driver.implicitly_wait(10)
-i = 0
+# i = 0
 try:
     driver.find_element_by_name("agree").click()
     time.sleep(5)
-    while(i < 2):
-        if i == 1:
-            driver.get(comUrl2)
-            time.sleep(5)
+    for all in companiesUrl:
+        
+        driver.get(all)
+        time.sleep(5)
         mCap = driver.find_element_by_xpath('//*[@id="quote-summary"]/div[2]/table/tbody/tr[1]/td[2]').text
         print("\n Market Cap : "+mCap)
 
@@ -126,7 +126,7 @@ try:
         myDict = dict(zip_iterator)
 
         print(myDict)
-        i = i+1
+        # i = i+1
 
             
 
