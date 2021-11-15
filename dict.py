@@ -14,9 +14,7 @@ Military Contracting No
 Pesticides No
 Thermal Coal No
 Palm Oil No '''
-myDict = {
-    
-}
+
 all = myText.split()
 NoIndex = []
 YesIndex = []
