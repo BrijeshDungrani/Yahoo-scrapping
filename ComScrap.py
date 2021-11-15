@@ -59,6 +59,7 @@ try:
     # print("\n Enviornment score :"+eScore+"\n Social score :"+ sScore +"\n Governance Score : "+gScore+ "\n Status :"+esgLevel+"\n Esg Percentile :"+esgPercent)
 
     ## Product Involvements area
+
     alcoholicBev = driver.find_element_by_xpath('//*[@id="Col2-3-InvolvementAreas-Proxy"]/section/table/tbody/tr[1]/td[1]').text
     alcoholicBevVal = driver.find_element_by_xpath('//*[@id="Col2-3-InvolvementAreas-Proxy"]/section/table/tbody/tr[1]/td[2]').text
     adultentertaint = driver.find_element_by_xpath('//*[@id="Col2-3-InvolvementAreas-Proxy"]/section/table/tbody/tr[2]/td[1]').text
@@ -67,16 +68,12 @@ try:
     print("\n "+ alcoholicBev+": "+ alcoholicBevVal)
     print("\n "+ adultentertaint+": "+ adultentertaintVal)
     time.sleep(10)
-    tabel_id = driver.find_element_by_xpath('//*[@id="Col2-3-InvolvementAreas-Proxy"]/section/table')
-    rows = tabel_id.find_elements(By.TAG_NAME,"tr")
-    print("BY using Table tag")
-    print(tabel_id.text)
-   
 
-    # for row in rows:
-    #     # Get the columns (all the column 2)        
-    #     col = row.find_elements(By.TAG_NAME, "td")[1] #note: index start from 0, 1 is col 2
-    #     print(col.text) #prints text from the element
+    tabel_id = driver.find_element_by_xpath('//*[@id="Col2-3-InvolvementAreas-Proxy"]/section/table')
+
+    proAct = tabel_id.text
+    print(proAct)
+
 
      
 except:
