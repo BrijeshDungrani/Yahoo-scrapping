@@ -5,10 +5,15 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
+import os
+import sys
+import csv
 
-comUrl1 = "https://finance.yahoo.com/quote/BMW.DE?p=BMW.DE"
-comUrl2 = "https://finance.yahoo.com/quote/SAP?p=SAP&.tsrc=fin-srch"
-companiesUrl = ['https://finance.yahoo.com/quote/BMW.DE?p=BMW.DE','https://finance.yahoo.com/quote/SAP?p=SAP&.tsrc=fin-srch']
+comUrl1 ='https://finance.yahoo.com/quote/BMW.DE?p=BMW.DE'
+companiesUrl = ['https://finance.yahoo.com/quote/BMW.DE?p=BMW.DE',
+'https://finance.yahoo.com/quote/SAP?p=SAP&.tsrc=fin-srch'
+]
+companiesName = ['SAP','BMW']
 driver = webdriver.Chrome()
 driver.maximize_window()
 driver.implicitly_wait(10)
@@ -22,9 +27,9 @@ driver.implicitly_wait(10)
 try:
     driver.find_element_by_name("agree").click()
     time.sleep(5)
-    for all in companiesUrl:
+    for comName in companiesUrl:
         
-        driver.get(all)
+        driver.get(comName)
         time.sleep(5)
         mCap = driver.find_element_by_xpath('//*[@id="quote-summary"]/div[2]/table/tbody/tr[1]/td[2]').text
         print("\n Market Cap : "+mCap)
@@ -128,9 +133,35 @@ try:
         print(myDict)
         # i = i+1
 
-            
 
+        samp =  {
+    'CompanyName' : comName,
+    'Market Cap' :  mCap,
+    'Volume' : Volume,
+    'Total Revenue 2020' : totRev2020,
+    'Total Revenue 2019' : totRev2019,
+    'Total Revenue 2018' : totRev2018,
+    'Total Revenue 2017' : totRev2017,
+    'grossProfit 2020' : grossProfit2020,
+    'grossProfit 2019' :  grossProfit2019,
+    'grossProfit 2018' : grossProfit2018,
+    'grossProfit 2017' : grossProfit2017,
+    'Total ESG' : totESG,
+    'eScore' :  eScore,
+    'sScore' : sScore,
+    'gScore' : gScore,
+    'esgLevel' : esgLevel,
+    'esgPercent' : esgPercent
+}
+        # indicator = list(samp.keys())
+        # comVal = list(samp.values)
+        # print("Indicators : " +indicator)
+        # print("Values : " +comVal)
 
+        # with open('sample.csv', 'w') as f: 
+        #     write = csv.writer(f) 
+        #     write.writerow(indicator)
+        #     write.writerow(comVal)
      
 except:
     driver.quit()
