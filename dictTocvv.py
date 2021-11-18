@@ -20,11 +20,14 @@ myDict =  {
     'esgLevel' : '5',
     'esgPercent' : 'Med'
 }
-indicator = []
+# indicator = []
 new_list = list(myDict.keys())
+new_list2 = list(myDict.values())
 
 print(new_list)
 
 with open('sample.csv', 'w') as f: 
     write = csv.writer(f) 
     write.writerow(new_list)
+    write.writerow(new_list2)
+

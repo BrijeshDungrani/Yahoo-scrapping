@@ -131,32 +131,48 @@ try:
         myDict = dict(zip_iterator)
 
         print(myDict)
-        # i = i+1
-
-
+        print("level 1")
         samp =  {
-    'CompanyName' : comName,
-    'Market Cap' :  mCap,
-    'Volume' : Volume,
-    'Total Revenue 2020' : totRev2020,
-    'Total Revenue 2019' : totRev2019,
-    'Total Revenue 2018' : totRev2018,
-    'Total Revenue 2017' : totRev2017,
-    'grossProfit 2020' : grossProfit2020,
-    'grossProfit 2019' :  grossProfit2019,
-    'grossProfit 2018' : grossProfit2018,
-    'grossProfit 2017' : grossProfit2017,
-    'Total ESG' : totESG,
-    'eScore' :  eScore,
-    'sScore' : sScore,
-    'gScore' : gScore,
-    'esgLevel' : esgLevel,
-    'esgPercent' : esgPercent
-}
+        'CompanyName' : comName,
+        'Market Cap' :  mCap,
+        'Volume' : Volume,
+        'Total Revenue 2020' : totRev2020,
+        'Total Revenue 2019' : totRev2019,
+        'Total Revenue 2018' : totRev2018,
+        'Total Revenue 2017' : totRev2017,
+        'grossProfit 2020' : grossProfit2020,
+        'grossProfit 2019' :  grossProfit2019,
+        'grossProfit 2018' : grossProfit2018,
+        'grossProfit 2017' : grossProfit2017,
+        'Total ESG' : totESG,
+        'eScore' :  eScore,
+        'sScore' : sScore,
+        'gScore' : gScore,
+        'esgLevel' : esgLevel,
+        'esgPercent' : esgPercent
+        }
+        print("level 2")
+        print(samp)
+        listofKeys = samp.keys()
+        listofKeys = list(listofKeys)
+        listofVal = samp.values()
+        listofVal = list(listofVal)
+        print("level 3")
+
+        print(listofKeys)
+        print("level 4")
+        with open('sample.csv', 'w') as f: 
+            write = csv.writer(f) 
+            write.writerow(listofKeys)
+            write.writerow(listofVal)
+        # indicator = []
+        # comVal = []
         # indicator = list(samp.keys())
         # comVal = list(samp.values)
+        # print("level 3")
         # print("Indicators : " +indicator)
         # print("Values : " +comVal)
+        # print("level 4")
 
         # with open('sample.csv', 'w') as f: 
         #     write = csv.writer(f) 
